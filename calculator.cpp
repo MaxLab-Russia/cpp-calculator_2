@@ -4,19 +4,19 @@
 #include <cmath>
 #include <sstream>
 #include <iostream>
+#include <unordered_set>
 
-using Number = double;
 
 // Функция чтения числа из std::cin после операторов
 bool ReadNumber(Number& result) {
     if (std::cin >> result) {
         return true;
-    } else {
+    } /*else {
         std::cerr << "Error: Numeric operand expected" << std::endl;
         std::cin.clear();
         // ИСПРАВЛЕНО: Больше не очищаем всю строку, позволяем читать следующие токены
         return false;
-    }
+    }*/
 }
 
 
@@ -84,7 +84,7 @@ void RunCalculatorCycle() {
             }
 
             // 3. Обработка арифметических операторов
-            if (command == "+" || command == "-" || command == "*" || command == "/" || command == "**") {
+            if (std::unordered_set<std::string>{"+", "-", "*", "/", "**"}.count(command)) {
                 std::string op = command;
                 Number next_number = 0.0;
                 std::string next_token;
