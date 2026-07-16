@@ -11,12 +11,9 @@
 bool ReadNumber(Number& result) {
     if (std::cin >> result) {
         return true;
-    } /*else {
-        std::cerr << "Error: Numeric operand expected" << std::endl;
-        std::cin.clear();
-        // ИСПРАВЛЕНО: Больше не очищаем всю строку, позволяем читать следующие токены
+    } else {
         return false;
-    }*/
+    }
 }
 
 
